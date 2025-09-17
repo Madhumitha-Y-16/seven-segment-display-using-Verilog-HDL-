@@ -42,48 +42,50 @@ To design and simulate a seven-segment display driver using Verilog HDL, and ver
 
 ```verilog
 // seven_segment_display.v
-module seven_segment_display (
-    input wire [3:0] binary_input,
-    output reg [6:0] seg_output
-);
-
-always @(*) begin
-    case (binary_input)
-        
-        
-        default: seg_output = 7'b0000000; // blank or error
-    endcase
-end
-
+module bcd_to_7seg (bcd,seg);
+input [3:0] bcd;
+output reg [6:0] seg;
+always @ (*)
+case(bcd)
+0 : seg = 7'b0000001; 
+1 : seg = 7'b1001111; 
+2 : seg = 7'b0010010; 
+3 : seg = 7'b0000110; 
+4 : seg = 7'b1001100; 
+5 : seg = 7'b0100100; 
+6 : seg = 7'b0100000; 
+7 : seg = 7'b0001111; 
+8 : seg = 7'b0000000; 
+9 : seg = 7'b0000100; 
+default: seg = 7'b1111111; 
+endcase
 endmodule
 ```
 ## Testbench for Seven-Segment Display
 ```verilog
-
-`timescale 1ns / 1ps
-module seven_segment_display_tb;
-// Inputs
-reg [3:0] binary_input;
-// Outputs
-wire [6:0] seg_output;
-// Instantiate the Unit Under Test (UUT)
-seven_segment_display uut (
-    .binary_input(binary_input),
-    .seg_output(seg_output)
-);
-// Test procedure
-initial begin
-    // Initialize inputs
-    binary_input = 4'b0000;
-
-end
-
-
+module bcd_to_7seg (bcd,seg);
+input [3:0] bcd;
+output reg [6:0] seg;
+always @ (*)
+case(bcd)
+0 : seg = 7'b0000001; 
+1 : seg = 7'b1001111; 
+2 : seg = 7'b0010010; 
+3 : seg = 7'b0000110; 
+4 : seg = 7'b1001100; 
+5 : seg = 7'b0100100; 
+6 : seg = 7'b0100000; 
+7 : seg = 7'b0001111; 
+8 : seg = 7'b0000000; 
+9 : seg = 7'b0000100; 
+default: seg = 7'b1111111; 
+endcase
 endmodule
 ```
 ## Simulated Output
 
-_____ Keep Simulated output ___________
+<img width="692" height="389" alt="image" src="https://github.com/user-attachments/assets/ea050f02-3f21-49ed-b31c-f33e3260cd9d" />
+
 
 ---
 
