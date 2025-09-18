@@ -63,23 +63,17 @@ endmodule
 ```
 ## Testbench for Seven-Segment Display
 ```verilog
-module bcd_to_7seg (bcd,seg);
+module bcd_to_7seg_tb ;
 input [3:0] bcd;
 output reg [6:0] seg;
-always @ (*)
-case(bcd)
-0 : seg = 7'b0000001; 
-1 : seg = 7'b1001111; 
-2 : seg = 7'b0010010; 
-3 : seg = 7'b0000110; 
-4 : seg = 7'b1001100; 
-5 : seg = 7'b0100100; 
-6 : seg = 7'b0100000; 
-7 : seg = 7'b0001111; 
-8 : seg = 7'b0000000; 
-9 : seg = 7'b0000100; 
-default: seg = 7'b1111111; 
-endcase
+bcd_to_7seg uut(bcd,seg);
+initial
+begin
+  for(bcd=0; bcd<10; bcd=bcd+1)
+  #5
+  $display("BCD=%b seg=%b",bcd,seg);
+  end
+$finish
 endmodule
 ```
 ## Simulated Output
