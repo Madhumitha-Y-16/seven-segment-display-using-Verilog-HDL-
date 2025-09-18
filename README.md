@@ -72,8 +72,8 @@ begin
   for(bcd=0; bcd<10; bcd=bcd+1)
   #5
   $display("BCD=%b seg=%b",bcd,seg);
-  end
 $finish
+end
 endmodule
 ```
 ## Simulated Output
