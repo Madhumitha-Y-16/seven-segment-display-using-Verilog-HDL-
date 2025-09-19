@@ -78,7 +78,8 @@ endmodule
 ```
 ## Simulated Output
 
-<img width="692" height="389" alt="image" src="https://github.com/user-attachments/assets/ea050f02-3f21-49ed-b31c-f33e3260cd9d" />
+<img width="1920" height="1080" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/94c983c4-9f65-4eb7-86a0-64d2b3cacae2" />
+
 
 
 ---
